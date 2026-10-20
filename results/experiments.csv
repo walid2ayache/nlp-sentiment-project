@@ -1,0 +1,8 @@
+run_name,stage,model,params_trainable,lr,epochs,batch_size,max_length,amp,val_accuracy,val_macro_f1,test_accuracy,test_macro_f1,test_weighted_f1,train_time_s,peak_gpu_alloc_mb,checkpoint,notes
+trivial_majority_class,reference,always predict 'neutral',0,n/a,n/a,n/a,n/a,n/a,0.45240596764026053,0.0,0.4833116248778899,0.217221886833873,,0.0,,,sanity floor: predicts the most common class for every input
+baseline_tfidf_logreg,baseline,tfidf_word+char + logistic_regression,,n/a,n/a,n/a,n/a,n/a,0.6932128598445052,0.6515446219278122,0.6130739172907848,0.5969684561377314,0.6084295232771001,86.0,,checkpoints/baseline_tfidf_logreg.joblib,best C=2.0; n_features=195494
+e4_roberta_lr2e-5,finetune,roberta-base,124647939,2e-05,3,32,96,fp16,0.7467955452826224,0.7348016209894855,0.7078313253012049,0.7088187343841245,0.7067213613217151,447.3,2851.3,checkpoints/e4_roberta_lr2e-5/best.pt,
+e2_lr2e-5_4ep,finetune,distilbert-base-uncased,66955779,2e-05,4,32,96,fp16,0.7297751628493381,0.7139989124039956,,,,263.3,1508.8,checkpoints/e2_lr2e-5_4ep/best.pt,
+e1_lr3e-5,finetune,distilbert-base-uncased,66955779,3e-05,3,32,96,fp16,0.729144778314772,0.7137660816527639,,,,268.3,1508.8,checkpoints/e1_lr3e-5/best.pt,
+e3_lr5e-5,finetune,distilbert-base-uncased,66955779,5e-05,3,32,96,fp16,0.7337675982349233,0.7131170996853226,,,,206.2,1508.8,checkpoints/e3_lr5e-5/best.pt,
+e5_frozen_encoder,finetune,distilbert-base-uncased,592899,0.001,3,32,96,fp16,0.6665265812145409,0.636431720338282,,,,74.1,386.0,checkpoints/e5_frozen_encoder/best.pt,

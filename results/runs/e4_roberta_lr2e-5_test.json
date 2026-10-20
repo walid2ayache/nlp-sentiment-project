@@ -1,0 +1,48 @@
+{
+  "split": "test",
+  "accuracy": 0.7078313253012049,
+  "macro_f1": 0.7088187343841245,
+  "weighted_f1": 0.7067213613217151,
+  "n_examples": 12284,
+  "inference_time_s": 9.3,
+  "examples_per_sec": 1327.1,
+  "model_name": "roberta-base",
+  "checkpoint": "checkpoints\\e4_roberta_lr2e-5\\best.pt",
+  "best_epoch": 3,
+  "val_metrics": {
+    "val_loss": 0.6273265172200785,
+    "val_accuracy": 0.7467955452826224,
+    "val_macro_f1": 0.7348016209894855,
+    "val_weighted_f1": 0.7459455851619935
+  },
+  "gpu": {
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "gpu_total_memory_gb": 8.0,
+    "gpu_capability": "8.6",
+    "bf16_supported": true
+  },
+  "per_class": {
+    "negative": {
+      "precision": 0.7031818181818181,
+      "recall": 0.7789526686807654,
+      "f1": 0.7391304347826086,
+      "support": 3972
+    },
+    "neutral": {
+      "precision": 0.7497020262216925,
+      "recall": 0.6356745831227892,
+      "f1": 0.6879956248290949,
+      "support": 5937
+    },
+    "positive": {
+      "precision": 0.6410526315789473,
+      "recall": 0.7692631578947369,
+      "f1": 0.6993301435406698,
+      "support": 2375
+    }
+  }
+}
