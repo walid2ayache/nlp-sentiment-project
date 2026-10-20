@@ -1,0 +1,91 @@
+{
+  "run_name": "baseline_tfidf_logreg",
+  "stage": "baseline",
+  "model_name": "tfidf_word+char + logistic_regression",
+  "config": {
+    "run_name": "baseline_tfidf_logreg",
+    "word_ngram_max": 2,
+    "char_ngram_min": 3,
+    "char_ngram_max": 5,
+    "max_features_word": 200000,
+    "max_features_char": 200000,
+    "C_values": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "max_iter": 2000,
+    "seed": 42
+  },
+  "n_features": 195494,
+  "n_train": 42827,
+  "n_val": 4759,
+  "n_test": 12284,
+  "feature_time_s": 9.0,
+  "fit_time_s": 19.3,
+  "total_time_s": 86.0,
+  "grid": [
+    {
+      "C": 0.25,
+      "val_accuracy": 0.6808152973313721,
+      "val_macro_f1": 0.6129467740954507,
+      "fit_time_s": 7.709214210510254
+    },
+    {
+      "C": 0.5,
+      "val_accuracy": 0.6927926034881278,
+      "val_macro_f1": 0.6369573768598132,
+      "fit_time_s": 12.152987718582153
+    },
+    {
+      "C": 1.0,
+      "val_accuracy": 0.696785038873713,
+      "val_macro_f1": 0.648017733739386,
+      "fit_time_s": 14.116446733474731
+    },
+    {
+      "C": 2.0,
+      "val_accuracy": 0.6932128598445052,
+      "val_macro_f1": 0.6515446219278122,
+      "fit_time_s": 19.25225305557251
+    },
+    {
+      "C": 4.0,
+      "val_accuracy": 0.6885900399243539,
+      "val_macro_f1": 0.6475540144616391,
+      "fit_time_s": 23.74932885169983
+    }
+  ],
+  "best_C": 2.0,
+  "best_val": {
+    "val_accuracy": 0.6932128598445052,
+    "val_macro_f1": 0.6515446219278122,
+    "val_weighted_f1": 0.688282484694742
+  },
+  "test": {
+    "accuracy": 0.6130739172907848,
+    "macro_f1": 0.5969684561377314,
+    "weighted_f1": 0.6084295232771001
+  },
+  "trivial_majority": {
+    "label": "neutral",
+    "val_accuracy": 0.45240596764026053,
+    "test_accuracy": 0.4833116248778899,
+    "test_macro_f1": 0.217221886833873
+  },
+  "gpu": {
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "gpu_total_memory_gb": 8.0,
+    "gpu_capability": "8.6",
+    "bf16_supported": true
+  },
+  "git_commit": "b71b68b",
+  "checkpoint": "checkpoints/baseline_tfidf_logreg.joblib",
+  "amp_dtype": "n/a"
+}
