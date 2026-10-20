@@ -2,7 +2,9 @@
 
 **Model:** `roberta-base` fine-tuned with the custom loop in `src/train.py`
 **Checkpoint:** `checkpoints/e4_roberta_lr2e-5/best.pt` (epoch 3, selected on validation macro-F1 = 0.7348)
-**Split:** official TweetEval test, 12,284 tweets, evaluated **once** (`python -m src.evaluate`)
+**Split:** official TweetEval test, 12,284 tweets — used only for the final report
+of the validation-selected checkpoint (`python -m src.evaluate`), never for model
+selection or tuning.
 
 | metric | value |
 |---|---|

@@ -46,8 +46,8 @@ def _load(path: Path) -> dict[str, Any]:
 def build_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for path in sorted(RUNS_DIR.glob("*.json")):
-        if path.name.endswith("_test.json"):
-            continue
+        if path.name.endswith(("_test.json", "_val.json")):
+            continue  # split-level evaluation files, not training runs
         record = _load(path)
         name = record.get("run_name", path.stem)
         if name.startswith("smoke_"):

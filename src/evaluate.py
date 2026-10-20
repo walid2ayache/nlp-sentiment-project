@@ -150,7 +150,9 @@ def main() -> dict[str, Any]:
     plot_confusion_matrix(
         y_true, y_pred, LABEL_NAMES,
         title=f"{ckpt['model_name']} - {args.split} (macro-F1 {metrics['macro_f1']:.3f})",
-        path=FIG_DIR / f"{run_name}_confusion_matrix.png",
+        # The split is part of the filename so a validation check can never
+        # overwrite the test-set figure that the README embeds.
+        path=FIG_DIR / f"{run_name}_{args.split}_confusion_matrix.png",
     )
     save_classification_report_md(report, f"{run_name} - {args.split} classification report", RESULTS_DIR / f"{tag}_classification_report.md")
     metrics["per_class"] = {
@@ -201,7 +203,7 @@ def main() -> dict[str, Any]:
     ax.set_title(f"{run_name}: confidence of correct vs wrong predictions ({args.split})")
     ax.legend()
     fig.tight_layout()
-    fig.savefig(FIG_DIR / f"{run_name}_confidence.png", dpi=150)
+    fig.savefig(FIG_DIR / f"{run_name}_{args.split}_confidence.png", dpi=150)
     plt.close(fig)
 
     return metrics
