@@ -54,13 +54,23 @@ def plot_confusion_matrix(
 
 
 def classification_report_df(y_true: np.ndarray, y_pred: np.ndarray, labels: Sequence[str]) -> pd.DataFrame:
-    """Per-class precision/recall/F1 plus support, as a DataFrame."""
+    """Per-class precision/recall/F1 plus support, as a DataFrame.
+
+    scikit-learn >= 1.9 returns the ``accuracy`` entry of ``output_dict`` as a
+    plain float instead of a dict, which used to corrupt the transposed table
+    (its "support" cell became the accuracy value). We pop it and rebuild the
+    row explicitly with the real number of examples.
+    """
     report = classification_report(
         y_true, y_pred, labels=list(range(len(labels))), target_names=list(labels), output_dict=True, zero_division=0
     )
+    accuracy_entry = report.pop("accuracy")
+    accuracy = float(accuracy_entry["f1-score"]) if isinstance(accuracy_entry, dict) else float(accuracy_entry)
+
     df = pd.DataFrame(report).T
-    df = df.rename(index={"accuracy": "accuracy", "macro avg": "macro avg", "weighted avg": "weighted avg"})
-    return df
+    df.loc["accuracy"] = {"precision": accuracy, "recall": accuracy, "f1-score": accuracy, "support": len(y_true)}
+    order = [label for label in labels if label in df.index] + ["accuracy", "macro avg", "weighted avg"]
+    return df.loc[[row for row in order if row in df.index]]
 
 
 def save_classification_report_md(report: pd.DataFrame, title: str, path: Path) -> None:
@@ -71,7 +81,10 @@ def save_classification_report_md(report: pd.DataFrame, title: str, path: Path) 
         values = []
         for col in cols:
             val = row[col]
-            values.append(f"{val:,}" if col == "support" else f"{val:.3f}")
+            if col == "support":
+                values.append(f"{int(round(float(val))):,}" if pd.notna(val) else "-")
+            else:
+                values.append(f"{val:.3f}")
         lines.append(f"| {index} | " + " | ".join(values) + " |")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -1,0 +1,109 @@
+{
+  "run_name": "e3_lr5e-5",
+  "model_name": "distilbert-base-uncased",
+  "config": {
+    "run_name": "e3_lr5e-5",
+    "model_name": "distilbert-base-uncased",
+    "lr": 5e-05,
+    "epochs": 3,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "max_length": 96,
+    "amp_dtype": "fp16",
+    "patience": 2,
+    "seed": 42,
+    "num_workers": 0,
+    "subset": null,
+    "log_every": 50,
+    "freeze_encoder": false
+  },
+  "data": {
+    "max_length": 96,
+    "val_size": 0.1,
+    "seed": 42,
+    "num_workers": 0
+  },
+  "n_train": 42827,
+  "n_val": 4759,
+  "parameters": {
+    "total": 66955779,
+    "trainable": 66955779
+  },
+  "gpu": {
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "gpu_total_memory_gb": 8.0,
+    "gpu_capability": "8.6",
+    "bf16_supported": true
+  },
+  "git_commit": "72caa4e",
+  "history": [
+    {
+      "train_loss": 0.7061611323199416,
+      "train_acc": 0.6728699185093516,
+      "train_macro_f1": 0.6446899671217562,
+      "grad_norm_mean": 4.027942154013995,
+      "grad_norm_nonfinite_steps": 0,
+      "epoch": 1,
+      "epoch_time_s": 68.49881267547607,
+      "val_loss": 0.620965299222569,
+      "val_accuracy": 0.7238915738600546,
+      "val_macro_f1": 0.7094002723874996,
+      "val_weighted_f1": 0.7236868939634202,
+      "lr": 3.7029867256637165e-05,
+      "examples_per_sec": 625.2225159419867,
+      "gpu_peak_alloc_mb": 1508.8
+    },
+    {
+      "train_loss": 0.4822765745541454,
+      "train_acc": 0.7949190930954771,
+      "train_macro_f1": 0.7858101520179205,
+      "grad_norm_mean": 4.938574651966181,
+      "grad_norm_nonfinite_steps": 1,
+      "epoch": 2,
+      "epoch_time_s": 68.17285776138306,
+      "val_loss": 0.6545089333278838,
+      "val_accuracy": 0.7253624711073755,
+      "val_macro_f1": 0.7090458568038777,
+      "val_weighted_f1": 0.7227382089133125,
+      "lr": 1.8514933628318583e-05,
+      "examples_per_sec": 628.2118926259774,
+      "gpu_peak_alloc_mb": 1508.8
+    },
+    {
+      "train_loss": 0.284666450846122,
+      "train_acc": 0.8888551614635627,
+      "train_macro_f1": 0.8868892451674592,
+      "grad_norm_mean": 6.686088283233044,
+      "grad_norm_nonfinite_steps": 1,
+      "epoch": 3,
+      "epoch_time_s": 68.6896915435791,
+      "val_loss": 0.7652034094276536,
+      "val_accuracy": 0.7337675982349233,
+      "val_macro_f1": 0.7131170996853226,
+      "val_weighted_f1": 0.7332679538980769,
+      "lr": 0.0,
+      "examples_per_sec": 623.4851116317661,
+      "gpu_peak_alloc_mb": 1508.8
+    }
+  ],
+  "best_epoch": 3,
+  "best_val": {
+    "val_loss": 0.7652034094276536,
+    "val_accuracy": 0.7337675982349233,
+    "val_macro_f1": 0.7131170996853226,
+    "val_weighted_f1": 0.7332679538980769
+  },
+  "train_time_s": 206.2,
+  "peak_gpu_alloc_mb": 1508.8,
+  "peak_gpu_reserved_mb": 1794.0,
+  "checkpoint": "checkpoints/e3_lr5e-5/best.pt",
+  "amp_dtype": "fp16",
+  "freeze_encoder": false
+}

@@ -1,0 +1,76 @@
+{
+  "run_name": "smoke_e1_lr3e-5",
+  "model_name": "distilbert-base-uncased",
+  "config": {
+    "run_name": "smoke_e1_lr3e-5",
+    "model_name": "distilbert-base-uncased",
+    "lr": 3e-05,
+    "epochs": 1,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "max_length": 96,
+    "amp_dtype": "fp16",
+    "patience": 2,
+    "seed": 42,
+    "num_workers": 0,
+    "subset": 512,
+    "log_every": 10,
+    "freeze_encoder": false
+  },
+  "data": {
+    "max_length": 96,
+    "val_size": 0.1,
+    "seed": 42,
+    "num_workers": 0
+  },
+  "n_train": 512,
+  "n_val": 512,
+  "parameters": {
+    "total": 66955779,
+    "trainable": 66955779
+  },
+  "gpu": {
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "gpu_total_memory_gb": 8.0,
+    "gpu_capability": "8.6",
+    "bf16_supported": true
+  },
+  "git_commit": "b71b68b",
+  "history": [
+    {
+      "train_loss": 1.052323341369629,
+      "train_acc": 0.4296875,
+      "train_macro_f1": 0.33311638783595005,
+      "grad_norm_mean": 1.448619320988655,
+      "epoch": 1,
+      "epoch_time_s": 1.287017822265625,
+      "val_loss": 0.99493408203125,
+      "val_accuracy": 0.515625,
+      "val_macro_f1": 0.3205871423262728,
+      "val_weighted_f1": 0.4230148672658863,
+      "lr": 0.0,
+      "examples_per_sec": 397.8188888625424,
+      "gpu_peak_alloc_mb": 1512.3
+    }
+  ],
+  "best_epoch": 1,
+  "best_val": {
+    "val_loss": 0.99493408203125,
+    "val_accuracy": 0.515625,
+    "val_macro_f1": 0.3205871423262728,
+    "val_weighted_f1": 0.4230148672658863
+  },
+  "train_time_s": 1.6,
+  "peak_gpu_alloc_mb": 1512.3,
+  "peak_gpu_reserved_mb": 1794.0,
+  "checkpoint": "checkpoints/smoke_e1_lr3e-5/best.pt",
+  "amp_dtype": "fp16",
+  "freeze_encoder": false
+}
