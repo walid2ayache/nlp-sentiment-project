@@ -1,0 +1,73 @@
+{
+  "dataset": "tweet_eval/sentiment",
+  "label_names": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "train": {
+    "n": 42827,
+    "class_counts": {
+      "negative": 6663,
+      "neutral": 19371,
+      "positive": 16793
+    },
+    "class_pct": {
+      "negative": 15.56,
+      "neutral": 45.23,
+      "positive": 39.21
+    },
+    "duplicates": 0,
+    "mean_words": 19.240759334064958,
+    "median_words": 20.0,
+    "p90_words": 25.0,
+    "p99_words": 29.0,
+    "max_words": 35
+  },
+  "val": {
+    "n": 4759,
+    "class_counts": {
+      "negative": 740,
+      "neutral": 2153,
+      "positive": 1866
+    },
+    "class_pct": {
+      "negative": 15.55,
+      "neutral": 45.24,
+      "positive": 39.21
+    },
+    "duplicates": 0,
+    "mean_words": 19.31519226728304,
+    "median_words": 20.0,
+    "p90_words": 26.0,
+    "p99_words": 29.0,
+    "max_words": 33
+  },
+  "test": {
+    "n": 12284,
+    "class_counts": {
+      "negative": 3972,
+      "neutral": 5937,
+      "positive": 2375
+    },
+    "class_pct": {
+      "negative": 32.33,
+      "neutral": 48.33,
+      "positive": 19.33
+    },
+    "duplicates": 0,
+    "mean_words": 14.859492022142625,
+    "median_words": 15.0,
+    "p90_words": 22.0,
+    "p99_words": 27.0,
+    "max_words": 32
+  },
+  "token_lengths": {
+    "max_length_used": 96,
+    "mean_tokens": 29.16,
+    "median_tokens": 29.0,
+    "p95_tokens": 43.0,
+    "p99_tokens": 50.0,
+    "pct_truncated": 0.0
+  }
+}
