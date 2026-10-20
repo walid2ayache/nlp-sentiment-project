@@ -1,0 +1,27 @@
+# Environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Large / generated artifacts
+checkpoints/
+data/
+mlruns/
+*.pt
+*.bin
+*.safetensors
+*.joblib
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Gradio runtime
+.gradio/
+flagged/

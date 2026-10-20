@@ -1,0 +1,28 @@
+# Python 3.12 (3.15 has no PyTorch wheels yet at the time of writing)
+#
+# 1) Install the CUDA build of PyTorch FIRST, matching your driver:
+#      pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+#    (CUDA 12.8 wheels work on any driver that supports CUDA >= 12.8, including
+#     CUDA 13.x drivers such as the one used here.)
+# 2) Then install the rest:
+#      pip install -r requirements.txt
+#
+# `torch==2.11.0` matches the installed `2.11.0+cu128` local build (PEP 440),
+# so this file will not replace your CUDA build with the CPU wheel.
+
+torch==2.11.0
+transformers==5.20.2
+datasets==5.1.0
+huggingface_hub==2.2.0
+scikit-learn==1.9.1
+mlflow==3.17.1
+gradio==6.30.0
+gradio_client==2.7.2
+matplotlib==3.11.2
+seaborn==0.13.2
+pandas==3.0.6
+numpy==2.5.4
+pyarrow==25.0.1
+tqdm==4.70.1
+joblib==1.6.0
+sentencepiece==0.2.2
